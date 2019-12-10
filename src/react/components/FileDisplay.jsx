@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { map } from "lodash";
 import { Button } from "react-bootstrap";
+import DisplayItem from "./DisplayItem";
 const { ipcRenderer } = window.require("electron");
 
 const FileDisplay = ({ path }) => {
@@ -36,9 +37,7 @@ const FileDisplay = ({ path }) => {
       </Button>
       <ul>
         {map(files, f => (
-          <li key={f.item} onClick={() => clickObject(f)}>
-            {f.item}
-          </li>
+          <DisplayItem key={f} item={f} onClick={clickObject} />
         ))}
       </ul>
     </div>
