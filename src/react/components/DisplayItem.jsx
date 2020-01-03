@@ -1,17 +1,30 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-import folder from "../folder.svg";
+import "./DisplayItem.css";
+import folder from "../folder.png";
+import file from "../file.png";
 
-const DisplayItem = ({ item, onClick }) => {
+const DisplayItem = ({ item, click, doubleClick, isActive }) => {
   const display = item.directory ? (
-    <div>
+    <Fragment>
       <img src={folder} alt="folder" />
-      <p>{item.item}</p>
-    </div>
+      <span className="caption">{item.item}</span>
+    </Fragment>
   ) : (
-    <p>{item.item}</p>
+    <Fragment>
+      <img src={file} alt="file" />
+      <span className="caption">{item.item}</span>
+    </Fragment>
   );
-  return <div onClick={() => onClick(item)}>{display}</div>;
+  return (
+    <div
+      onClick={() => click(item)}
+      onDoubleClick={() => doubleClick(item)}
+      className={`item ${isActive ? "item-active" : null}`}
+    >
+      {display}
+    </div>
+  );
 };
 
 export default DisplayItem;

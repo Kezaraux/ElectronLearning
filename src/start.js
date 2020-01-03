@@ -21,6 +21,7 @@ function createWindow() {
     }
   });
 
+  mainWindow.maximize();
   mainWindow.loadURL(
     isDev
       ? "http://localhost:3000"
@@ -74,7 +75,7 @@ ipcMain.on("getContents", (event, arg) => {
   const data2 = data.map(item => {
     const stat = fs.statSync(`${arg}\\${item}`);
     return {
-      item,
+      item: `${arg}\\${item}`,
       file: stat.isFile(),
       directory: stat.isDirectory()
     };

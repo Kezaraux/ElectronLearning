@@ -1,0 +1,23 @@
+div.item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  width: 200px;
+  word-wrap: break-word;
+  padding: 5px;
+  margin: 5px;
+}
+
+div.item-active {
+  background-color: gray;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.caption {
+  display: block;
+}
